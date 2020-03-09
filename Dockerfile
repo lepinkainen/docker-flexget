@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 ENV LANG en_US.utf8
 
-RUN pip install flexget cloudscraper deluge-client
+RUN pip install flexget cloudscraper deluge-client python-telegram-bot
 
 ENV TZ=Europe/Helsinki
 
