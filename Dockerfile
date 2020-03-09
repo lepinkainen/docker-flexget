@@ -1,5 +1,7 @@
 FROM ubuntu:focal
 
+ARG DEBIAN_FRONTEND="noninteractive"
+
 RUN apt-get update && \
     apt-get install -y python3 python-pip ca-certificates locales unrar && \
     rm -rf /var/lib/apt/lists/* && \
