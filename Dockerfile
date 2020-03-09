@@ -15,4 +15,5 @@ RUN mkdir -p /root/.config/flexget && mkdir -p /torrents
 VOLUME ["/root/.config/flexget", "/torrents/"]
 
 COPY start.sh /start.sh
+RUN chmod a+x /start.sh
 ENTRYPOINT ["/start.sh"]
