@@ -14,7 +14,10 @@ RUN echo $TZ > /etc/timezone && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean
-    
+
+# Python-pip requires universe repo nowadays
+RUN add-apt-repository universe
+
 # Install basic stuff  
 RUN apt-get update && \
     apt-get install -y python3 python-pip ca-certificates locales unrar && \
