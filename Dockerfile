@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y python3 python3-pip ca-certificates loc
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
 # Install flexget and the python packages it needs
-RUN pip3 install flexget cloudscraper deluge-client python-telegram-bot
+RUN pip3 install flexget cloudscraper deluge-client python-telegram-bot==12.8
 
 # Create required directories and mount the volumes
 RUN mkdir -p /root/.config/flexget && mkdir -p /torrents
