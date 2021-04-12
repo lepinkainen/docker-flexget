@@ -2,14 +2,6 @@ FROM ubuntu:focal
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-
-ENV TZ=Europe/Helsinki
-
-# Set locale, this should be a static layer done only when LANG is changed
-RUN apt-get clean && apt-get update && apt-get install -y locales && locale-gen $LANG && rm -rf /var/lib/apt/lists/*
-
 # Timezone shouldn't change after initial build, so do it first because layers
 # From https://github.com/moby/moby/issues/12084#issuecomment-299813445
 RUN echo $TZ > /etc/timezone && \
@@ -18,7 +10,6 @@ RUN echo $TZ > /etc/timezone && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
 
 # enable universe repo
 RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository universe && rm -rf /var/lib/apt/lists/*
