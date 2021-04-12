@@ -1,6 +1,8 @@
+[![ci](https://github.com/lepinkainen/docker-flexget/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lepinkainen/docker-flexget/actions/workflows/build.yml)
+
 # Dockerized Flexget with Deluge
 
- his requires that the network 'deluge' is created externally with `docker network create deluge`
+This requires that the network 'deluge' is created externally with `docker network create deluge`
 
 ## Flexget / docker-compose.yml
 
